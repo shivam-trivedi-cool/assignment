@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-	resources :contact
+	scope "(:locale)", locale: /en|pl/ do
+    root 'contact#index'
+    resources :contact
+    get '*unmatched_route', to: 'application#not_found'
+  end
 end

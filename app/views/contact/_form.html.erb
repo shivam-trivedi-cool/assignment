@@ -1,34 +1,45 @@
-<form class="contact100-form validate-form">
+<%= form_for @contact, :url => { :action => "create" }, :html => {:class => 'contact100-form validate-form'} do |f| %>
+  <% if @contact.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@contact.errors.count, "error") %> prohibited this contact form being saved:</h4>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <span class="contact100-form-title">
-  Send Us A Message
+    <%= t('contact.title') %>
   </span>
-  <label class="label-input100" for="first-name">Tell us your name *</label>
+  <label class="label-input100" for="first-name"><%= t('contact.name_title') %></label>
   <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
-    <input id="first-name" class="input100" type="text" name="first-name" placeholder="First name">
+    <%= f.text_field :first_name, class: 'input100', placeholder: t('contact.first_name'), id: 'first-name' %>
     <span class="focus-input100"></span>
   </div>
   <div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
-    <input class="input100" type="text" name="last-name" placeholder="Last name">
+    <%= f.text_field :last_name, class: 'input100', placeholder: t('contact.last_name'), id: 'last-name' %>
     <span class="focus-input100"></span>
   </div>
-  <label class="label-input100" for="email">Enter your email *</label>
+  <label class="label-input100" for="email"><%= t('contact.email_title') %></label>
   <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-    <input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
+    <%= f.email_field :email, class: 'input100', placeholder: t('contact.email'), id: 'email' %>
     <span class="focus-input100"></span>
   </div>
-  <label class="label-input100" for="phone">Enter phone number</label>
+  <label class="label-input100" for="phone"><%= t('contact.phone_number_title') %></label>
   <div class="wrap-input100">
-    <input id="phone" class="input100" type="text" name="phone" placeholder="Eg. +1 800 000000">
+    <%= f.text_field :phone_number, class: 'input100', placeholder: t('contact.phone_number'), id: 'phone', minlength: 10, maxlength: 10 %>
     <span class="focus-input100"></span>
   </div>
-  <label class="label-input100" for="message">Message *</label>
+  <label class="label-input100" for="message"><%= t('contact.message_title') %></label>
   <div class="wrap-input100 validate-input" data-validate = "Message is required">
-    <textarea id="message" class="input100" name="message" placeholder="Write us a message"></textarea>
+    <%= f.text_area :message, class: 'input100', placeholder: t('contact.message'), id: 'message' %>
     <span class="focus-input100"></span>
   </div>
   <div class="container-contact100-form-btn">
-    <button class="contact100-form-btn">
-    Send Message
-    </button>
+    <%= f.submit 'Send Message', class: 'contact100-form-btn' %>
   </div>
-</form>
+<% end %>
