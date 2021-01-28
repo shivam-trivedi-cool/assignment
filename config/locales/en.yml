@@ -11,3 +11,10 @@ en:
     message_title: 'Message *'
     message: 'Write us a message'
     submit_btn: 'Send Message'
+    address:
+      address: 'Address'
+      talk: 'Lets Talk'
+      general_support: 'General Support'
+ 
+
+

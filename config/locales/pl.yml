@@ -1,3 +1,17 @@
 pl:
-  contact:
+   contact:
     title: 'Wyślij nam wiadomość'
+    name_title: 'Powiedz nam swoje imię *'
+    first_name: 'Imię'
+    last_name: 'Nazwisko'
+    email_title: 'Wprowadź swój email *'
+    email: 'przykład  przykład@email.com'
+    phone_number_title: 'Wpisz numer telefonu'
+    phone_number: 'przykład +48 12 11 11 00'
+    message_title: 'Wiadomość *'
+    message: 'Napisz do nas wiadomość'
+    submit_btn: 'Wysłać wiadomość'
+    address:
+      address: 'Adres'
+      talk: 'Porozmawiajmy'
+      general_support: 'Ogólne wsparcie'
