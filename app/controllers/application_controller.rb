@@ -1,18 +1,22 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-	before_action :set_locale
+  before_action :set_locale
 
-	def not_found
-		respond_to do |format|
-      format.html { render template: 'layouts/not_found', layout: 'layouts/application', status: 404 }
-      format.all  { render nothing: true, status: 404 }
+  def not_found
+    respond_to do |format|
+      format.html do
+        render template: 'layouts/not_found', layout: 'layouts/application', status: 404
+      end
+      format.all { render nothing: true, status: 404 }
     end
-	end
+  end
 
-	private
+  private
 
-	def set_locale
-		I18n.locale = extract_locale || I18n.default_locale
-	end
+  def set_locale
+    I18n.locale = extract_locale || I18n.default_locale
+  end
 
   def extract_locale
     parsed_locale = params[:locale]

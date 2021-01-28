@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class ContactController < ApplicationController
   def index
-  	@contact = Contact.new
+    @contact = Contact.new
   end
 
   def create
-  	@contact = Contact.new(contact_params)
-  	respond_to do |format|
+    @contact = Contact.new(contact_params)
+    respond_to do |format|
       if @contact.save
-      	ContactMailer.contact_email(@contact).deliver_now!
+        ContactMailer.contact_email(@contact).deliver_now!
         format.html { redirect_to root_path, notice: 'Mail sent successfully!' }
         format.json { render :index, status: :created }
       else
@@ -20,6 +22,10 @@ class ContactController < ApplicationController
   private
 
   def contact_params
-     params.require(:contact).permit(:first_name, :last_name, :email, :phone_number, :message)
+    params.require(:contact).permit(:first_name,
+                                    :last_name,
+                                    :email,
+                                    :phone_number,
+                                    :message)
   end
 end
