@@ -9,6 +9,8 @@ Metrics/AbcSize:
 Naming/FileName:
   Exclude:
     - 'Gemfile'
+Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context']
 
 # Rails exceptions
 AllCops:
