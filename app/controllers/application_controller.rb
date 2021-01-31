@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
 
-  def not_found
+  def not_found                   #handled 404 for wrong routes
     respond_to do |format|
       format.html do
         render template: 'layouts/not_found', layout: 'layouts/application', status: 404
@@ -14,11 +14,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_locale
+  def set_locale                 #setting the language of the user's choice
     I18n.locale = extract_locale || I18n.default_locale
   end
 
-  def extract_locale
+  def extract_locale             #extract the language from params
     parsed_locale = params[:locale]
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
   end

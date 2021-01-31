@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class ContactController < ApplicationController
-  def index
+  def index                 #root page of the application
     @contact = Contact.new
   end
 
-  def create
+  def create                #save record in db and send an email to the admin
     @contact = Contact.new(contact_params)
     respond_to do |format|
       if @contact.save

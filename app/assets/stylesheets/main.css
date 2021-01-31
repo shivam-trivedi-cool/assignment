@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: Poppins-Regular;
-  src: font-url('poppins/Poppins-Regular.ttf'); 
+  src: url('poppins/Poppins-Regular.ttf'); 
 }
 
 @font-face {
@@ -517,6 +517,8 @@ textarea.input100 {
     opacity: 1;
   }
 }
-
-
-
+.locale-container{
+  padding-right: 7%;
+  float: right;
+  text-align: right;
+}

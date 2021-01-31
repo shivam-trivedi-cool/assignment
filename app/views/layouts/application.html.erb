@@ -15,7 +15,7 @@
   <body>
     <%= render 'layouts/change_locale' %>
     <% flash.each do |key, value| %>
-      <div class = "alert alert-#{key == 'notice ? 'success' : 'danger'}" >
+      <div class = "col-md-12 alert alert-#{key == 'notice ? 'success' : 'danger'}" >
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <%= value %>
       </div>
