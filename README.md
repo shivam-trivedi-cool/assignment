@@ -1,24 +1,48 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails Contact Form Assignment
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+To get started with the app, first clone the repo and `cd` into the directory:
 
-* System dependencies
+```
+$ git clone https://github.com/shivam-trivedi-cool/assignment.git 
+$ cd assignment
+```
 
-* Configuration
+Change the ruby version to 2.6.5:
 
-* Database creation
+```
+$ rvm use 2.6.5 
+```
 
-* Database initialization
+Then install the needed gems:
 
-* How to run the test suite
+```
+$ bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Install JavaScript dependencies:
 
-* Deployment instructions
+```
+$ yarn install
+```
 
-* ...
+Next, migrate the database:
+
+```
+$ rails db:migrate
+```
+
+Finally, run the test suite to verify that everything is working correctly:
+
+```
+$ rspec
+```
+
+If the test suite passes, you'll be ready to run the app in a local server:
+
+```
+$ rails server
+```
